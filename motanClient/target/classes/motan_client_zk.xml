@@ -8,7 +8,7 @@
   <!--  <motan:registry regProtocol="zookeeper" name="my_zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183"/>-->
 
     <!-- 协议配置。为防止多个业务配置冲突，推荐使用id表示具体协议。 -->
-    <motan:protocol id="motan2" default="true" name="motan2"
+    <motan:protocol id="motan2" default="true" name="motan2" loadbalance="random" haStrategy="failover"
                     serialization="simple" maxServerConnection="80000" maxContentLength="1048576"
                     maxWorkerThread="800" minWorkerThread="20" />
 
@@ -16,11 +16,18 @@
     <motan:basicReferer requestTimeout="200" accessLog="false"
                         retries="2" group="motan-demo-rpc" module="motan-demo-rpc"
                         application="myMotanDemo" protocol="motan2" registry="my_zookeeper"
-                        id="motantestClientBasicConfig" throwException="true" check="false" />
+                        id="motantestClientBasicConfig" throwException="false" check="false" />
 
 
     <!-- 具体referer配置。使用方通过beanid使用服务接口类 -->
     <motan:referer id="helloService"
                    interface="com.yks.demo.IHelloService"
                    connectTimeout="10000" requestTimeout="10000" basicReferer="motantestClientBasicConfig" />
+
+
+  <!--  <motan:referer id="helloService"
+                   interface="com.yks.demo.IHelloService"
+                   connectTimeout="10000" requestTimeout="10000" basicReferer="motantestClientBasicConfig" >
+        <motan:method name="sayHello" requestTimeout=""/>
+    </motan:referer>-->
 </beans>

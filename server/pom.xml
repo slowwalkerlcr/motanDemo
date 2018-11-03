@@ -6,7 +6,10 @@
 	<groupId>com.yks.server</groupId>
 	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <modules>
+        <module>../motanServer2</module>
+    </modules>
+    <packaging>pom</packaging>
 
 	<name>server</name>
 

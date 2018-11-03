@@ -8,5 +8,7 @@ public class MotanClient {
         ApplicationContext ctx = new ClassPathXmlApplicationContext(Constants.zk_xml);
         IHelloService helloService = (IHelloService) ctx.getBean("helloService");
         System.out.println(helloService.sayHello("lvcr"));
+
+        //System.out.println(helloService.sayHello("lvcr"));
     }
 }

@@ -19,13 +19,13 @@
 
     <!-- 通用配置，多个rpc服务使用相同的基础配置. group和module定义具体的服务池。export格式为“protocol id:提供服务的端口” -->
     <motan:basicService id="serviceBasicConfig"
-                        registry="registry" export="motan2:8001" group="motan-demo-rpc"
+                        registry="registry" export="motan2:8002" group="motan-demo-rpc"
                         version="1.0" accessLog="false" shareChannel="true" module="motan-demo-rpc"
                         application="motanDemoProject" />
 
 
     <!-- 具体rpc服务配置，声明实现的接口类。 -->
-    <motan:service interface="com.yks.demo.IHelloService"  register="false"
+    <motan:service interface="com.yks.demo.IHelloService"
                    ref="heeloService" basicService="serviceBasicConfig">
     </motan:service>
 
