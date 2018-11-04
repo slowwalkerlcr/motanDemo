@@ -16,11 +16,11 @@
     <motan:basicReferer requestTimeout="200" accessLog="false"
                         retries="2" group="motan-demo-rpc" module="motan-demo-rpc"
                         application="myMotanDemo" protocol="motan2" registry="my_zookeeper"
-                        id="motantestClientBasicConfig" throwException="false" check="false" />
+                        id="motantestClientBasicConfig" throwException="true" check="false" />
 
 
     <!-- 具体referer配置。使用方通过beanid使用服务接口类 -->
-    <motan:referer id="helloService"
+    <motan:referer id="helloService" 
                    interface="com.yks.demo.IHelloService"
                    connectTimeout="10000" requestTimeout="10000" basicReferer="motantestClientBasicConfig" />
 
